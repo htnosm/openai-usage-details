@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usage Per User</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<style>
+  .chart-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .left-charts,
+  .right-charts {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .right-charts {
+    background-color: #f0f0f0;
+  }
+
+  .chart-header {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+
+  .separator {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 10px 0;
+  }
+</style>
+
+<body>
+  <div id="config">
+    <label for="organizationId">Organization ID:</label>
+    <input type="password" id="organizationId" name="organizationId" />
+    <br />
+    <label for="apiKey">API Key:</label>
+    <input type="password" id="apiKey" name="apiKey" />
+    <br />
+  </div>
+  <div id="buttons">Select the period of data to retrieve: </div>
+  <hr class="separator">
+  <div class="chart-container">
+    <div class="left-charts">
+      <div class="chart-header">Language model usage</div>
+      <canvas id="requestsPerUserChart"></canvas>
+      <canvas id="tokensPerUserChart"></canvas>
+      <canvas id="averageTokensPerRequestChart"></canvas>
+    </div>
+    <div class="right-charts">
+      <div class="chart-header">Audio API usage</div>
+      <div>
+        <canvas id="whisperTotalRequestsChart"></canvas>
+        <canvas id="whisperTotalSecondsChart"></canvas>
+        <canvas id="whisperAverageSecondsChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <script src="usage-per-user.js"></script>
+</body>
+
+</html>

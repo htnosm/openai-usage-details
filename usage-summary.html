@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Usage Summary</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+</head>
+<style>
+  .chart-container {
+    display: flex;
+    width: 100%;
+  }
+
+  .left-charts {
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+  }
+
+  .right-charts {
+    display: flex;
+    flex-direction: column;
+    flex: 5;
+  }
+
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+  }
+</style>
+
+<body>
+  <div id="config">
+    <label for="organizationId">Organization ID:</label>
+    <input type="password" id="organizationId" name="organizationId" />
+    <br />
+    <label for="apiKey">API Key:</label>
+    <input type="password" id="apiKey" name="apiKey" />
+    <br />
+  </div>
+  <div id="buttons">Select the period of data to retrieve: </div>
+  <hr class="separator">
+  <div id="buttonsPerUser"></div>
+  <div class="chart-container">
+    <div class="left-charts">
+      <div class="total-usage">
+        <p id="usageThisMonth"></p>
+      </div>
+      <div class="pie-chart-container">
+        <canvas id="pieChart"></canvas>
+      </div>
+    </div>
+    <div class="right-charts">
+      <div>
+        <canvas id="stackedBarChart"></canvas>
+        <canvas id="cumulativeAreaChart"></canvas>
+      </div>
+    </div>
+  </div>
+  <script src="usage-summary.js"></script>
+</body>
+
+</html>
